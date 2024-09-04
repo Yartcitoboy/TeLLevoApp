@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial de Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment [(ngModel)]="selectedSegment" value="default">
+    <ion-segment-button value="default">
+      <ion-label>Conductor</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Pasajero</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'default'">
+    <!-- Contenido para Conductor -->
+    <h2>Información del Conductor</h2>
+    <p>Aquí va toda la información relacionada con el conductor.</p>
+  </div>
+
+  <div *ngIf="selectedSegment === 'segment'">
+    <!-- Contenido para Pasajero -->
+    <h2>Información del Pasajero</h2>
+    <p>Aquí va toda la información relacionada con el pasajero.</p>
+  </div>
+</ion-content>
