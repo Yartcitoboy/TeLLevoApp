@@ -47,8 +47,30 @@ const routes: Routes = [
     path: 'historial',
     loadChildren: () => import('./pages/menu/historial/historial.module').then( m => m.HistorialPageModule)
   },
-  
-
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./TipoUsers/admin/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'detalle-admin',
+    loadChildren: () => import('./TipoUsers/admin/detalle-admin/detalle-admin.module').then( m => m.DetalleAdminPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./TipoUsers/pasajero/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'detalle-pasajero',
+    loadChildren: () => import('./TipoUsers/pasajero/detalle-pasajero/detalle-pasajero.module').then( m => m.DetallePasajeroPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./TipoUsers/conductor/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'detalle-conductor',
+    loadChildren: () => import('./TipoUsers/conductor/detalle-conductor/detalle-conductor.module').then( m => m.DetalleConductorPageModule)
+  },
 ];
 
 @NgModule({
