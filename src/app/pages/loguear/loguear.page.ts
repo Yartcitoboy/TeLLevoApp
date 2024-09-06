@@ -15,6 +15,7 @@ export class LoguearPage implements OnInit {
   loginForm: FormGroup;
   emailValue?: string;
   passValue?: string;
+  //
   
   constructor(
     private router: Router, 
