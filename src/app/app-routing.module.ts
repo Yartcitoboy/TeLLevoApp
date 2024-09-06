@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu/historial/historial.module').then( m => m.HistorialPageModule)
   },
   {
-    path: 'dashboard',
+    path: 'admin-dashboard',
     loadChildren: () => import('./TipoUsers/admin/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
@@ -71,6 +71,19 @@ const routes: Routes = [
     path: 'detalle-conductor',
     loadChildren: () => import('./TipoUsers/conductor/detalle-conductor/detalle-conductor.module').then( m => m.DetalleConductorPageModule)
   },
+  // {
+  //   path: 'usuarios',
+  //   children: [
+  //     {
+  //       path: '',
+  //       loadChildren: () => import('./TipoUsers/admin/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  //     },
+  //     {
+  //       path: ':email',
+  //       loadChildren: () => import('./TipoUsers/admin/detalle-admin/detalle-admin.module').then( m => m.DetalleAdminPageModule)
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({

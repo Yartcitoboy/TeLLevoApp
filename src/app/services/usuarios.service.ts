@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Pasajero } from '../interfaces/pasajero';
+import { Usuario } from '../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +7,9 @@ import { Pasajero } from '../interfaces/pasajero';
 export class UsuariosService {
 
   usuarios = [
-    {'email': 'admin@admin.cl', 'pass': 'admin12', 'tipo': 'admin'},
-    {'email': 'user@user.cl', 'pass': 'user12', 'tipo': 'usuario'},
-    {'email': 'invi@invi.cl', 'pass': 'inviadmin12', 'tipo': 'invitado'},
+    {'email': 'admin@admin.cl', 'pass': 'admin123', 'tipo': 'admin'},
+    {'email': 'user@user.cl', 'pass': 'user123', 'tipo': 'usuario'},
+    {'email': 'invi@invi.cl', 'pass': 'invi123', 'tipo': 'invitado'},
   ]
 
   constructor() { }
@@ -22,8 +22,8 @@ export class UsuariosService {
     return this.usuarios.find(aux => aux.email === email);
   }
 
-  addUsuario(pasajero: Pasajero){
-    this.usuarios.push(pasajero);
+  addUsuario(usuario: Usuario){
+    this.usuarios.push(usuario);
   }
 
   deleteUsuario(){
