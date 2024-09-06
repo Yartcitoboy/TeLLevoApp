@@ -56,7 +56,7 @@ const routes: Routes = [
     loadChildren: () => import('./TipoUsers/admin/detalle-admin/detalle-admin.module').then( m => m.DetalleAdminPageModule)
   },
   {
-    path: 'dashboard',
+    path: 'pasajero-dashboard',
     loadChildren: () => import('./TipoUsers/pasajero/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
@@ -64,7 +64,7 @@ const routes: Routes = [
     loadChildren: () => import('./TipoUsers/pasajero/detalle-pasajero/detalle-pasajero.module').then( m => m.DetallePasajeroPageModule)
   },
   {
-    path: 'dashboard',
+    path: 'conductor-dashboard',
     loadChildren: () => import('./TipoUsers/conductor/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
