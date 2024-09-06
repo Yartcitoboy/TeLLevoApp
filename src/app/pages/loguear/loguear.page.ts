@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
-import { MenuController } from '@ionic/angular/common';
+import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 
@@ -14,8 +13,8 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 export class LoguearPage implements OnInit {
 
   loginForm: FormGroup;
-  emailValue?: string = 'admin@admin.cl';
-  passValue?: string = 'admin123';
+  emailValue?: string;
+  passValue?: string;
   
   constructor(
     private router: Router, 
