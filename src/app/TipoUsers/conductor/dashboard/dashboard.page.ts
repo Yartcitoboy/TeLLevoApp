@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { addIcons } from 'ionicons';
+import { person, time, home } from 'ionicons/icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
-  constructor() { }
+  constructor() {
+    addIcons({ person, time, home})
+   }
 
   ngOnInit() {
   }
+
+  
 
 }

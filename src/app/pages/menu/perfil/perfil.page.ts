@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -6,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  selectedSegment: string = 'default';
+  
+  
 
-  constructor() { }
+  constructor(
+    private menuController: MenuController,
+    
+  ) { }
 
   ngOnInit() {
+    this.menuController.enable(false);
+    
   }
-
 }
