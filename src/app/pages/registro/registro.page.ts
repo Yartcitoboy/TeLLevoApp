@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, IonModal, LoadingController } from '@ionic/angular';
+import { AlertController, IonModal, LoadingController, MenuController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,8 +15,8 @@ export class RegistroPage implements OnInit {
   @ViewChild(IonModal) modal?: IonModal;
 
   loginForm: FormGroup;
-  pasajeroEmail?: string = 'pasajero@pasa.cl';
-  pasajeroPass?: string = 'pasa123';
+  emailValue?: string;
+  passValue?: string;
   message = 'Elije qué tipo de usuario deseas ser en la aplicación.';
   role: 'conductor' | 'pasajero' = 'conductor';
 
@@ -22,15 +24,14 @@ export class RegistroPage implements OnInit {
     private router: Router, 
     private formBuilder: FormBuilder,
     private loadingController: LoadingController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private usuariosServices: UsuariosService,
+    private menuController: MenuController
   ) {
     this.loginForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      fono: ['', Validators.required],
-      pass: ['', [Validators.required, Validators.minLength(6)]]
-    });
+      pass: ['', [Validators.required,Validators.minLength(6)]],
+      });  
   }
 
   ngOnInit() {}
@@ -59,8 +60,14 @@ export class RegistroPage implements OnInit {
   }
 
   registrarse() {
+    const nuevoUsuario: Usuario = {
+      email: this.emailValue || '',
+      pass: this.passValue || '',
+      tipo: this.role
+    };
     if (this.loginForm.valid) {
       // Aquí iría la lógica para registrar al usuario (conductor o pasajero)
+      this.usuariosServices.addUsuario(nuevoUsuario);
       console.log('Registro exitoso:', this.loginForm.value);
       this.router.navigate(['/login']);
     } else {
@@ -72,4 +79,5 @@ export class RegistroPage implements OnInit {
       }).then(alert => alert.present());
     }
   }
+
 }

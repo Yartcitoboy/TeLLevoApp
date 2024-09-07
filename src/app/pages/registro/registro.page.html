@@ -58,29 +58,24 @@
         </ion-segment>
 
         <!-- Formulario para Conductor -->
-        <!-- <ng-container *ngIf="role === 'conductor'">
+        <ng-container [formGroup]="loginForm" *ngIf="role === 'conductor'">
           <ion-item>
-            <ion-input label="Nombre" labelPlacement="stacked" type="text" placeholder="Nombre del conductor"
-              [(ngModel)]="conductor.nombre"></ion-input>
+            <ion-input fornControlName="nombre" label="Nombre" labelPlacement="stacked" type="text"
+              placeholder="Nombre del conductor">
+            </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input label="Apellido" labelPlacement="stacked" type="text" placeholder="Apellido del conductor"
-              [(ngModel)]="conductor.apellido"></ion-input>
+            <ion-input fornControlName="email" label="Email" labelPlacement="stacked" type="email"
+              placeholder="Ingrese Correo" [(ngModel)]="emailValue">
+            </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input label="Gmail" labelPlacement="stacked" type="email" placeholder="Correo del conductor"
-              [(ngModel)]="conductor.gmail"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Telefono" labelPlacement="stacked" type="text" placeholder="Telefono del conductor"
-              [(ngModel)]="conductor.fono"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Contraseña" labelPlacement="stacked" type="text" placeholder="Nombre del conductor"
-              [(ngModel)]="conductor.pass"></ion-input>
+            <ion-input fornControlName="pass" label="Contraseña" labelPlacement="stacked" type="password"
+              placeholder="Contraseña" [(ngModel)]="passValue">
+            </ion-input>
           </ion-item>
           <ion-button expand="full" (click)="registrarse()">Registrarse</ion-button>
-        </ng-container> -->
+        </ng-container>
 
         <!-- Formulario para Pasajero -->
         <ng-container [formGroup]="loginForm" *ngIf="role === 'pasajero'">
@@ -91,12 +86,12 @@
           </ion-item>
           <ion-item>
             <ion-input fornControlName="email" label="Email" labelPlacement="stacked" type="email"
-              placeholder="Ingrese Correo" [(ngModel)]="pasajeroEmail">
+              placeholder="Ingrese Correo" [(ngModel)]="emailValue">
             </ion-input>
           </ion-item>
           <ion-item>
             <ion-input fornControlName="pass" label="Contraseña" labelPlacement="stacked" type="password"
-              placeholder="Contraseña" [(ngModel)]="pasajeroPass">
+              placeholder="Contraseña" [(ngModel)]="passValue">
             </ion-input>
           </ion-item>
           <ion-button expand="full" (click)="registrarse()">Registrarse</ion-button>
