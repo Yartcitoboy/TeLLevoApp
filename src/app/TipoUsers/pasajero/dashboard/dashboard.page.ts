@@ -12,7 +12,7 @@ import { person, time, home } from 'ionicons/icons';
 export class DashboardPage implements OnInit {
   selectedSegment: string = 'default';
 
-
+  //MI MAMÁ ME DIO LA VIDA Y ESTA CARRERA LAS GANAS DE ACABARLA
 
   constructor(
     private menuController: MenuController
